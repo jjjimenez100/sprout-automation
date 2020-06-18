@@ -15,8 +15,8 @@ const {
     TIMEOUT_SCHEDULE,
 } = process.env;
 
-const timeinTask = () => init(timeIn);
+const timeinTask = async () => init(timeIn);
 initScheduler(TIMEIN_SCHEDULE, timeinTask, TIMEZONE);
 
-const timeoutTask = () => init(timeOut);
+const timeoutTask = async () => init(timeOut);
 initScheduler(TIMEOUT_SCHEDULE, timeoutTask, TIMEZONE);

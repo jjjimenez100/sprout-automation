@@ -6,6 +6,8 @@ const {
     TOOLTWIST_PASSWORD,
 } = process.env;
 
+let page = null;
+
 const clickConfirmModal = async () => {
     await page.waitFor(1000);
     await page.click('[data-bb-handler="success"]');
@@ -28,8 +30,8 @@ const timeOut = async () => {
 const loginUser = async () => {
     console.log(`Logging in as ${TOOLTWIST_EMAIL}...`);
 
-    await page.$eval('#txtUsername', element => element.value = TOOLTWIST_EMAIL);
-    await page.$eval('#txtPassword', element => element.value = TOOLTWIST_PASSWORD);
+    await page.$eval('#txtUsername', (element, value) => element.value = value, TOOLTWIST_EMAIL);
+    await page.$eval('#txtPassword', (element, value) => element.value = value, TOOLTWIST_PASSWORD);
 
     await page.click('#btnLogIn');
     await page.waitFor(10000);
@@ -44,7 +46,7 @@ const init = async (sproutAction) => {
     const browser = await puppeteer.launch({
         headless: false,
     });
-    const page = await browser.newPage();
+    page = await browser.newPage();
     await page.goto(SPROUT_URL);
     await loginUser();
 

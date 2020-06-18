@@ -1,0 +1,16 @@
+{
+  "name": "sprout-timein-automation",
+  "version": "1.0.0",
+  "description": "Automate that boring stuff of checking in and out",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cron": "^1.8.2",
+    "dotenv": "^8.2.0",
+    "puppeteer": "^4.0.0"
+  }
+}

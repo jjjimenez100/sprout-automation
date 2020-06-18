@@ -1,11 +1,11 @@
 require('dotenv').config();
 
-const { initScheduler } = require('./scheduler');
+const { initScheduler } = require('./modules/scheduler');
 const { 
     init,
     timeIn,
     timeOut,
-} = require('./sprout');
+} = require('./modules/sprout');
 
 console.log('Congrats, isa kanang dakilang tamad!');
 
